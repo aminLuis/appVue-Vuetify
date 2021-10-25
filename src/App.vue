@@ -6,7 +6,7 @@
   <!-- Here add components -->
      <inicio/>
     </v-main>
-  
+   
   </v-app>
 </template>
 
@@ -18,7 +18,7 @@ export default {
   name: 'App',
 
   components: {
-   Inicio
+   Inicio,
   },
     
 

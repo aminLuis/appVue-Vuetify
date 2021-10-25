@@ -42,27 +42,27 @@
           <v-layout>
 
               <v-list
-        nav
-        dense
-      >
+                    nav
+                    dense
+              >
         <v-list-item-group
           v-model="group"
           active-class="deep-purple--text text--accent-4"
         >
           <v-list-item>
-            <v-list-item-title>Foo</v-list-item-title>
+            <v-list-item-title @click="cambiarComponent('create')">Nuevo producto</v-list-item-title>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Bar</v-list-item-title>
+            <v-list-item-title @click="cambiarComponent('list')">Lista producto</v-list-item-title>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Fizz</v-list-item-title>
+            <v-list-item-title>Item</v-list-item-title>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Buzz</v-list-item-title>
+            <v-list-item-title>Item</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -70,20 +70,35 @@
           </v-layout>
 
       </v-navigation-drawer>
+     
+   
+     <component v-bind:is="actual"></component>
+    
       
 
     </div>
 </template>
 
 <script>
-
+import create from './create.vue';
+import List from './list.vue';
 
 export default {
+  components: { create, List,},
+ 
 name : 'inicio',
 data() {
     return {
-       drawer: true
+       drawer: true,
+       actual: 'create'
     };
-},    
+},
+
+methods: {
+  cambiarComponent(component) {
+    this.actual = component;
+  },
+},
+
 }
 </script>
